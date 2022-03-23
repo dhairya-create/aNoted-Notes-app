@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding-top: 5rem;
+  background-color: antiquewhite;
+  text-align: center;
+}
+
+button{
+    background-color:antiquewhite;
+    font-size: 150%;
+    font-weight: bolder;
+}
+
+input{
+    font-size: larger;
+}
+
+#myform{
+   background-color: rgb(105, 94, 94);
+   color: antiquewhite;
+   height:max-content;
+   width: max-content;
+   float: right;
+   margin-right: 15%;
+   margin-top: 5%;
+   display: flex;
+ }
+
+ #logo{
+   float: left;
+   margin-left: 15%;
+ }
+
+ a{
+   color:antiquewhite;
+ }

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>aNoted</title>
+    <link href="login.css" rel="stylesheet">
+</head>
+
+<body>
+    <form name="loginForm" method="POST">
+        <img src="logo.jpg" alt="" height="300">
+        <h1><b>aNoted</b> - Login</h1>
+
+        <div >
+            <input type="text" id="username" placeholder="Username" required/>
+        </div><br>
+
+        <div>
+            <input type="password" id="password" placeholder="Password" required/>
+        </div><br>
+
+        <button onclick="validate()" type="submit">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button>Sign Up</button>
+    </form>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

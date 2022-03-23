@@ -1,0 +1,20 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding-top: 5rem;
+  background-color: antiquewhite;
+  text-align: center;
+}
+
+button{
+    background-color:rgb(133, 114, 114);
+    font-size: 150%;
+    font-weight: bolder;
+}
+
+input{
+    font-size: larger;
+}
