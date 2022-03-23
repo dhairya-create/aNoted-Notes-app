@@ -1,0 +1,41 @@
+ul{
+    list-style-type: none;
+    margin:0;;
+    display:flex;
+    padding:5px;
+   justify-content: space-evenly;
+}
+a{
+    text-decoration: none;
+}
+nav{
+    width:100vw;
+}
+body{
+    margin:0;
+}
+li{
+    margin: 0 2vw;
+}
+.header{
+    display: flex;
+    background-color: aquamarine;
+    justify-content: space-between;
+}
+.addNotes{
+    text-align: right;
+    margin-right: 200px;
+    margin-top: 50px;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 30px;
+    justify-content: space-evenly;
+}
+h4{
+    border: 2px solid;
+    margin: 80px;
+    padding:40px;
+}
