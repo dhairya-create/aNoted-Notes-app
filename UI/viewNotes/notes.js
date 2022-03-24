@@ -1,4 +1,7 @@
-
+var title=sessionStorage.getItem("title");
+var desc=sessionStorage.getItem("desc");
+document.getElementById("notes-title").value = title;
+document.getElementById("content").innerHTML = desc;
 
 // function onload(){
 //     console.log(sessionStorage.getItem("title"));

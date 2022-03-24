@@ -4,13 +4,13 @@ function validate() {
     var password = document.getElementById("password").value;
     if (username == "mishel07" && password == "mishel07") 
     {
-        window.location.href="../home/index.html";
+        return true;
     }
     else if(username!="" && password!="")
     {
         alert("Incorect Username or password");
+        return false;
     }
-    return false;
 }
 
 function signUp(){

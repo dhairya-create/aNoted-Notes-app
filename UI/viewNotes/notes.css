@@ -23,7 +23,6 @@ body{
     font-weight: bolder;
     text-align: center;
     margin-left: 60px;
-    font-family: 'Cedarville Cursive', cursive;
 }
 
 #form-control{
@@ -43,8 +42,6 @@ body{
     height:auto;
     font-size: 18px;
     background-color:tan;
-    
-    font-weight: 500;
  }
 
  .bold{

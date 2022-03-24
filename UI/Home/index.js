@@ -1,10 +1,19 @@
 const notes = [];
+const desc = ["dhairya","parshwa","jenish","mishel","shery","raj","kalp","rohan"];
 function onloadFun(){
     const div = document.getElementById("cards");
     const childDiv = document.createElement("div");
     childDiv.className="childDiv";
     for(let i=0; i<8; i++){
         const h4 = document.createElement("h4");
+        h4.id = i;
+        h4.onclick = function() { 
+            sessionStorage.setItem("title",h4.innerHTML);
+            sessionStorage.setItem("desc",desc[h4.id]);
+            console.log(sessionStorage.getItem("title"));
+            console.log(sessionStorage.getItem("desc"));
+            window.location.href="../viewNotes/notes.html";
+        };
         h4.innerHTML = "Notes" + i;
         childDiv.appendChild(h4);
         notes[i] = h4.innerHTML;
@@ -45,3 +54,9 @@ function search(){
 function toggle(){
     document.getElementById("myDropdown").classList.toggle("show");
 }
+
+// function viewNote(data){
+//     sessionStorage.setItem("title",data.innerHTML);
+//     sessionStorage.setItem("desc",desc[data.id]);
+//     window.location.href="../notes/notes.html";
+// }
