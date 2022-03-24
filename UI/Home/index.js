@@ -27,7 +27,6 @@ function search(){
     childDiv.className="childDiv";
 
     if(val.value!=""){
-        //console.log(val.value);
         for(let i=0;i<notes.length;i++){
             if(val.value == notes[i]){
                 const h4 = document.createElement("h4");
@@ -38,9 +37,7 @@ function search(){
         }
         if(flag == 1){
             const div = document.getElementById("cards");
-            while(div.hasChildNodes()){
-                div.removeChild(div.firstChild);
-            }
+            div.removeChild(div.firstChild);
             div.appendChild(childDiv);
         }
 
@@ -55,8 +52,3 @@ function toggle(){
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// function viewNote(data){
-//     sessionStorage.setItem("title",data.innerHTML);
-//     sessionStorage.setItem("desc",desc[data.id]);
-//     window.location.href="../notes/notes.html";
-// }
