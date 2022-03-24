@@ -1,7 +1,16 @@
 const date = new Date();
+var item = sessionStorage.getItem("date");
+var bool = sessionStorage.getItem("item");
+if(bool == "true"){
+  var ele = document.getElementById(item);
+  console.log(ele.innerHTML);
+  ele.style.color = "red";
+}
 function getDiary(data){
-  console.log(data.innerHTML);
-  data.style.color="red";
+  console.log(data.id);
+  sessionStorage.setItem("date",data.id);
+  sessionStorage.setItem(data.id,"false");
+  window.location.href="../notes/notes.html";
 }
 const renderCalendar = () => {
   date.setDate(1);

@@ -36,6 +36,11 @@ function search(){
         }
 
     }
+    else{
+        const div = document.getElementById("cards");
+        div.removeChild(div.firstChild);
+        onload();
+    }
 }
 function toggle(){
     document.getElementById("myDropdown").classList.toggle("show");

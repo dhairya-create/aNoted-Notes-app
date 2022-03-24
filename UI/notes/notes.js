@@ -28,3 +28,11 @@ function doBold(){
         val = val.replace(select,`<u>${select}</u>`)
         target.innerHTML = val
     }
+
+
+    function saveNotes()
+    {
+        var date = sessionStorage.getItem("date");
+        sessionStorage.setItem(date,"true");
+        window.location.href="../diary/diary.html";
+    }

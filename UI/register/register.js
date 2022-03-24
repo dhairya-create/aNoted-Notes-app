@@ -1,3 +1,5 @@
+var favoritemovie = sessionStorage.getItem("favoriteMovie");
+console.log(favoritemovie);
 function addUser() {
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;

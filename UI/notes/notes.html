@@ -18,18 +18,18 @@
 
         <div id="form-control">
 
-            <input class="notes-title" type="text" name="testform" id="" autofocus>
+            <input class="notes-title" type="text" name="testform" id="" placeholder="Enter Title" autofocus>
             <hr>
 
             <div id="description">
                 <p class="content" contenteditable="true" spellcheck="false"></p>
             </div>
-
+            <div style="text-align: center;">
             <button class="btn" onclick="doBold()">BOLD</button>
             <button class="btn" onclick="doItalic()">ITALIC </button>
             <button class="btn" onclick="doUnderline()">UNDERLINE</button>
-
-
+            </div><hr>
+            <button class="btn" onclick="saveNotes()" $style="text-align: center; margin-left: 150px ;  background-color: cadetblue;">SAVE NOTES</button>
         </div>
 </body>
 <script src="notes.js" defer></script>

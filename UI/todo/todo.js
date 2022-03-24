@@ -10,9 +10,7 @@ function addTask() {
 
     var check = document.createElement("input");
     check.type = "checkbox";
-
-
-
+    check.className="check"
     var text = document.createElement("input");
     text.type = "text";
     text.value = "";

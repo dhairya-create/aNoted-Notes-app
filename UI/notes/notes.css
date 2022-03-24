@@ -35,13 +35,13 @@ body{
     font-size: 150%;
     font-weight: bolder;
     background-color: rgb(105, 94, 94);
-     
+    margin:5px;
  }
 
  #description{
-   
     height:auto;
     font-size: 18px;
+    background-color:tan;
  }
 
  .bold{

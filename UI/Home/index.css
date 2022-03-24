@@ -50,6 +50,15 @@ button{
 .dropbtn:hover, .dropbtn:focus {
     background-color: #2980B9;
 }
+
+#Note:hover, #Note:focus {
+    background-color: #505b61;
+}
+
+#ToDo:hover,#ToDo:focus {
+    background-color: #505b61;
+}
+
 .dropdown-content {
     display: none;
     background-color: #f1f1f1;

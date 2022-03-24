@@ -16,6 +16,7 @@
 
 body{
     background-color: rgb(105, 94, 94);
+    text-align: center;
     
 }
 .todo-title{
@@ -53,11 +54,15 @@ input{
 
 input[type=checkbox]
 {
-    margin-top: 10px;       
+    margin-top: 10px; 
+}
+input[type=text]
+{
+    background-color: antiquewhite;  
+    border-style: none;
 }
 
-.btn{
-    margin-left: 460px;
+button{
     background-color:antiquewhite;
     font-size: 150%;
     font-weight: bolder;

@@ -1,14 +1,18 @@
+console.log(sessionStorage.setItem("favoriteMovie", "Shrek"));
 function validate() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    window.getSelection().style.color='red';
-    console.log(username);
     if (username == "mishel07" && password == "mishel07") 
     {
-        alert("Login successfully");
+        window.location.href="../home/index.html";
     }
-    if(username!="" && password!="")
+    else if(username!="" && password!="")
     {
         alert("Incorect Username or password");
     }
+    return false;
+}
+
+function signUp(){
+    window.location.href="../register/register.html";
 }
