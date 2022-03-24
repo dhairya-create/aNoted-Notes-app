@@ -3,17 +3,23 @@ ul{
     margin:0;;
     display:flex;
     padding:5px;
-   justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 a{
     text-decoration: none;
+    color:antiquewhite;
+}
+a:visited{
+    color:antiquewhite;
 }
 nav{
     width:100vw;
+    height:100px;
     font-size: larger;
 }
 input{
     font-size: larger;
+    border-radius: 5%;
 }
 body{
     margin:0;
@@ -21,12 +27,15 @@ body{
     height: 100%;
 }
 li{
-    margin: 0 2vw;
+    margin-top:20px;
+    font-size: larger;
+    color: antiquewhite;
+    font-family: 'Cedarville Cursive', cursive;
 }
 
 .header{
     display: flex;
-    background-color: aquamarine;
+    background-color:rgb(54, 37, 37);
     justify-content: space-between;
 }
 button{
@@ -40,15 +49,15 @@ button{
     margin-top: 50px;
 }
 .dropbtn {
-    background-color: #3498DB;
-    color: white;
+    background-color:rgb(54, 37, 37);
+    color:antiquewhite;
     padding: 16px;
-    font-size: 16px;
+    font-size: 12px;
     border: none;
     cursor: pointer;
 }
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    background-color:antiquewhite;
 }
 
 #Note:hover, #Note:focus {
