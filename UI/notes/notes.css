@@ -1,0 +1,50 @@
+body{
+   
+    background-color: rgb(105, 94, 94);
+}
+
+.container{
+    
+    border: 1px solid;
+    display: flex;
+    border: 1px solid black;
+    width: 505px;
+    padding: 50px;
+    margin: auto;
+    background-color: antiquewhite;
+    margin-top: 60px;
+    flex-wrap: wrap;
+    clear: both;
+    box-shadow: rgba(0.35, 0.35, 0.35, 0.35) 20px 20px 20px;
+}
+
+.notes-title{
+    font-size:x-large;
+    font-weight: bolder;
+    text-align: center;
+    margin-left: 60px;
+}
+
+#form-control{
+    width: 500px;
+ }
+
+
+ .btn{
+    background-color:antiquewhite;
+    font-size: 150%;
+    font-weight: bolder;
+    background-color: rgb(105, 94, 94);
+     
+ }
+
+ #description{
+   
+    height:auto;
+    font-size: 18px;
+ }
+
+ .bold{
+     font-weight: bold;
+     color: red;
+ }

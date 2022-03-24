@@ -1,0 +1,64 @@
+.container{
+    
+    border: 1px solid;
+    display: flex;
+    border: 1px solid black;
+    width: 505px;
+    padding: 50px;
+    margin: auto;
+
+    margin-top: 60px;
+    flex-wrap: wrap;
+    clear: both;
+    background-color: antiquewhite;
+   
+}
+
+body{
+    background-color: rgb(105, 94, 94);
+    
+}
+.todo-title{
+    font-size:x-large;
+    font-weight: bolder;
+    text-align: center;
+}
+
+input[type=checkbox]:checked + input {
+  
+    text-decoration: line-through;
+    
+}
+
+#form-control{
+   width: 500px;
+  
+}
+
+input{
+    font-size: larger;
+}
+
+
+
+
+
+.todo-title{
+    width: 495px;
+    height: 30px;
+}
+
+
+
+
+input[type=checkbox]
+{
+    margin-top: 10px;       
+}
+
+.btn{
+    margin-left: 460px;
+    background-color:antiquewhite;
+    font-size: 150%;
+    font-weight: bolder;
+}
