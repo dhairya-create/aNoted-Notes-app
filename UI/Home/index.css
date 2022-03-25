@@ -33,7 +33,10 @@ li{
     color: rgb(9, 63, 63);
     font-family: 'Cedarville Cursive', cursive;
 }
-
+#logo{
+    font-size: xx-large;
+    font-family: 'Cedarville Cursive', cursive;
+}
 .header{
     display: flex;
     background-color:rgb(235, 201, 137);
