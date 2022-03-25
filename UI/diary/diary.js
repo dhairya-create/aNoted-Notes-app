@@ -1,16 +1,8 @@
 const date = new Date();
-var item = sessionStorage.getItem("date");
-var bool = sessionStorage.getItem("item");
-if(bool == "true"){
-  var ele = document.getElementById(item);
-  console.log(ele.innerHTML);
-  ele.style.color = "red";
-}
 function getDiary(data){
   console.log(data.id);
   sessionStorage.setItem("date",data.id);
-  sessionStorage.setItem(data.id,"false");
-  window.location.href="../notes/notes.html";
+  window.location.href="../diaryNotes/notes.html";
 }
 const renderCalendar = () => {
   date.setDate(1);
@@ -89,3 +81,12 @@ document.querySelector(".next").addEventListener("click", () => {
 
 renderCalendar();
 
+var data = sessionStorage.getItem("date");
+var check = sessionStorage.getItem("checkDate");
+console.log(data);
+console.log(check);
+if(data==check)
+{
+  console.log('yes');
+  document.getElementById(data).style.color="red";
+}

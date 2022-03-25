@@ -1,6 +1,5 @@
 body{
-   
-    background-color: rgb(105, 94, 94);
+    background-color: lightblue;
 }
 
 .container{
@@ -23,6 +22,7 @@ body{
     font-weight: bolder;
     text-align: center;
     margin-left: 60px;
+    font-family: 'Cedarville Cursive', cursive;
 }
 
 #form-control{
@@ -31,17 +31,20 @@ body{
 
 
  .btn{
-    background-color:antiquewhite;
+    color:aliceblue;
     font-size: 150%;
     font-weight: bolder;
-    background-color: rgb(105, 94, 94);
+    background-color: rgb(9, 63, 63);
     margin:5px;
+    padding: 5px;
  }
 
  #description{
-    height:auto;
+    min-height: 80%;
+    max-height: 200%;
     font-size: 18px;
-    background-color:tan;
+    background-color:rgb(235, 201, 137);
+    font-weight: 500;
  }
 
  .bold{

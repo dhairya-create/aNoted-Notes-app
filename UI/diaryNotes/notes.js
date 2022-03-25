@@ -45,6 +45,7 @@ function doBold(){
 
     function saveNotes()
     {
-        alert("Notes saved!!");
-        window.location.href="../home/index.html";
+        var date = sessionStorage.getItem("date");
+        sessionStorage.setItem("checkDate",date);
+        window.location.href="../diary/diary.html";
     }

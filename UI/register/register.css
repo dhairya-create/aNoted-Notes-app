@@ -5,12 +5,12 @@ body {
 
 body {
   padding-top: 5rem;
-  background-color: antiquewhite;
+  background-color: lightblue;
   text-align: center;
 }
 
 button{
-    background-color:antiquewhite;
+    background-color:lightblue;
     font-size: 150%;
     font-weight: bolder;
 }
@@ -20,8 +20,8 @@ input{
 }
 
 #myform{
-   background-color: rgb(105, 94, 94);
-   color: antiquewhite;
+   background-color: rgb(235, 201, 137);
+   color:rgb(9, 63, 63);
    height:max-content;
    width: max-content;
    float: right;
@@ -36,5 +36,5 @@ input{
  }
 
  a{
-   color:antiquewhite;
+   color:rgb(9, 63, 63);
  }

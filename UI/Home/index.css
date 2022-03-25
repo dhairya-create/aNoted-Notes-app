@@ -7,15 +7,16 @@ ul{
 }
 a{
     text-decoration: none;
-    color:antiquewhite;
+    color:rgb(9, 63, 63);
 }
 a:visited{
-    color:antiquewhite;
+    color:rgb(9, 63, 63);
 }
 nav{
     width:100vw;
     height:100px;
     font-size: larger;
+    font-weight: bolder;
 }
 input{
     font-size: larger;
@@ -23,23 +24,23 @@ input{
 }
 body{
     margin:0;
-    background-color: antiquewhite;
+    background-color:lightblue;
     height: 100%;
 }
 li{
     margin-top:20px;
     font-size: larger;
-    color: antiquewhite;
+    color: rgb(9, 63, 63);
     font-family: 'Cedarville Cursive', cursive;
 }
 
 .header{
     display: flex;
-    background-color:rgb(54, 37, 37);
+    background-color:rgb(235, 201, 137);
     justify-content: space-between;
 }
 button{
-    background-color:rgb(133, 114, 114);
+    background-color:lightblue;
     font-size: 150%;
     font-weight: bolder;
 }
@@ -49,15 +50,15 @@ button{
     margin-top: 50px;
 }
 .dropbtn {
-    background-color:rgb(54, 37, 37);
-    color:antiquewhite;
+    background-color:rgb(29, 39, 39);
+    color:aliceblue;
     padding: 16px;
-    font-size: 12px;
+    font-size: 18px;
     border: none;
     cursor: pointer;
 }
 .dropbtn:hover, .dropbtn:focus {
-    background-color:antiquewhite;
+    background-color:rgb(9, 63, 63);
 }
 
 #Note:hover, #Note:focus {
@@ -70,7 +71,7 @@ button{
 
 .dropdown-content {
     display: none;
-    background-color: #f1f1f1;
+    background-color:aliceblue;
     min-width: 160px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -98,7 +99,8 @@ button{
     justify-content: space-evenly;
 }
 h4{
-    background-color:rgb(133, 114, 114);
+    background-color:rgb(9, 63, 63);
+    color: aliceblue;
     border: 2px solid;
     margin: 80px;
     padding:40px;

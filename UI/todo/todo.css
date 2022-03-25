@@ -6,16 +6,15 @@
     width: 505px;
     padding: 50px;
     margin: auto;
-
     margin-top: 60px;
     flex-wrap: wrap;
     clear: both;
-    background-color: antiquewhite;
+    background-color:antiquewhite;
    
 }
 
 body{
-    background-color: rgb(105, 94, 94);
+    background-color: lightblue;
     text-align: center;
     
 }
@@ -23,6 +22,8 @@ body{
     font-size:x-large;
     font-weight: bolder;
     text-align: center;
+    width: 495px;
+    height: 30px;
 }
 
 input[type=checkbox]:checked + input {
@@ -41,29 +42,19 @@ input{
 }
 
 
-
-
-
-.todo-title{
-    width: 495px;
-    height: 30px;
-}
-
-
-
-
 input[type=checkbox]
 {
     margin-top: 10px; 
 }
 input[type=text]
 {
-    background-color: antiquewhite;  
+    background-color: rgb(202, 201, 199);  
     border-style: none;
 }
 
 button{
-    background-color:antiquewhite;
+    background-color:rgb(9, 63, 63);
     font-size: 150%;
     font-weight: bolder;
+    color: aliceblue;
 }
