@@ -1,5 +1,6 @@
 function createTodo() {
     alert("Todo Created!");
+    window.location.href="../home/index.html";
 }
 
 

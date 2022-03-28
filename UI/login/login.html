@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form name="loginForm" method="POST" action="../home/index.html">
+    <form name="loginForm" method="POST" action="../home/index.html" onsubmit="return validate()">
         <img src="logo.png" alt="" height="300">
         <h1 id="logo"><b>aNoted</b> - Login</h1>
 
@@ -22,7 +22,7 @@
             <input type="password" id="password" placeholder="Password" required/>
         </div><br>
 
-        <button onsubmit="validate()" type="submit">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input id="login" type="submit" value="Login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button onclick="signUp()">Sign Up</a></button>
     </form>
 

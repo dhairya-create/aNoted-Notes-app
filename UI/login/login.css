@@ -9,7 +9,7 @@ body {
   text-align: center;
 }
 
-button{
+button,#login{
   background-color:rgb(235, 201, 137);
   font-size: 150%;
   font-weight: bolder;
