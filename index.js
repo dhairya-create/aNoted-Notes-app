@@ -31,6 +31,9 @@ app.use('/users',userRouter);
 const notesRouter = require('./app/routes/notes');
 app.use('/notes',notesRouter);
 
+const toDoRouter = require('./app/routes/toDo');
+app.use('/toDo',toDoRouter);
+
 app.listen(port,()=>{
     console.log(`Server is running on port:${port}`);
 });
