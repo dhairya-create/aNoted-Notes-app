@@ -34,6 +34,9 @@ app.use('/notes',notesRouter);
 const toDoRouter = require('./app/routes/toDo');
 app.use('/toDo',toDoRouter);
 
+const diaryRouter = require('./app/routes/diary');
+app.use('/diary',diaryRouter);
+
 app.listen(port,()=>{
     console.log(`Server is running on port:${port}`);
 });
