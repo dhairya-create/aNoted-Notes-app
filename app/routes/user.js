@@ -12,6 +12,7 @@ const validation=require('../validations/register.validation')
 
 router.route('/register').post(async (req, res) => {
     try {
+        console.log('call');
         let validate = await validation(req.body);
     
         if (validate.error) {
@@ -56,9 +57,6 @@ router.route('/:username').get((req,res)=> {
 });
 
 router.route('/updateUser/:id').put(async (req,res)=>{
-    const salt = await bcrypt.genSalt(10);
-    const hash_password = await bcrypt.hash(req.body.password, salt);
-    req.body.password = hash_password
     User.findByIdAndUpdate(req.params.id,req.body)
     .then(user=>res.json(user))
     .catch(err=>res.status(400).json('Error' + err));
