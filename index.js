@@ -25,6 +25,17 @@ mongoose
     console.log(err);
 });
 
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions))
+
+app.get("/",(req,res)=>{
+  res.json("Testing Route...");
+})
+
 const userRouter = require('./app/routes/user');
 app.use('/users',userRouter);
 

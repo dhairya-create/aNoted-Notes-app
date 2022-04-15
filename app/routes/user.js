@@ -11,7 +11,9 @@ const responses=require("../utils/responses")
 const validation=require('../validations/register.validation')
 
 router.route('/register').post(async (req, res) => {
+    console.log("hello");
     try {
+        console.log(req.body);
         console.log('call');
         let validate = await validation(req.body);
     
@@ -40,11 +42,14 @@ router.route('/register').post(async (req, res) => {
         req.body.password = hash_password
     
         let new_user = await User.create(req.body)
+        res.json({status: 'ok', username:req.body.username})
+        console.log(new_user);
         if (!new_user) {
           return responses.serverErrorResponse(res, "Error while creating user.")
         }
         return responses.successfullyCreatedResponse(res, new_user)
-      } catch (error) {
+      } 
+      catch (error) {
         console.log(error)
         return responses.serverErrorResponse(res)
       }

@@ -1,3 +1,20 @@
+window.onload = async()=>{
+    try {
+        let res=await fetch("http://localhost:5000/", {
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+             }
+      
+          })
+    let data = await res.json()
+    console.log(data)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 function validate() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
