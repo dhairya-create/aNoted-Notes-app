@@ -36,8 +36,8 @@ router.route('/searchByTitle/:userId/:title').get((req,res)=>{
     })
 });
 
-router.route('/updateNotes/:id').put((req,res)=>{
-    Notes.findOneAndUpdate(req.params.id,req.body)
+router.route('/updateNotes').put((req,res)=>{
+    Notes.findOneAndUpdate({username:req.body.username,title:req.body.title},req.body)
     .then((result)=>{
         res.json(result);
     })
