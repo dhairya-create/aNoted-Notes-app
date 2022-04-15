@@ -1,21 +1,4 @@
-// async function validate() {
-//     var username = document.getElementById("username").value;
-//     var password = document.getElementById("password").value;
-//     alert('hey')
-//     let result = await fetch("http://localhost:5000/users/login", {
-//         method: 'POST',
-//         body:JSON.stringify({
-//             username:username,
-//             password:password
-//         }),
-//         headers: {
-//             "Content-Type": 'application/json',
-//             "Accept": 'application/json'
-//         },
-//         });
-//         alert(result);
-   
-// }
+
 
 document.querySelector(".login-btn").addEventListener("click",validate)
 
@@ -30,10 +13,12 @@ async function validate(e) {
     obj.password = document.getElementById("password").value;
     const data=[];
     if(obj.username!="" && obj.password!=""){  
-        let res = await postRequest("http://localhost:5000/users/login",obj)
+        let res = await postRequest("http://localhost:5000/users/login",obj);
         console.log(res)
-        alert("next");
-        // window.location.href="../home/login.html";
+        if(!res.error)
+            window.location.href="../Home/index.html";
+        else
+            alert("Invalid credentials");
     }
 }
 
@@ -50,6 +35,6 @@ var postRequest = async(url,obj)=>{
             "Accept": 'application/json'
         },
         });
-        let res = await result.json()
+        let res = await result.json();
         return res
 }

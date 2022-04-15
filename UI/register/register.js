@@ -13,8 +13,11 @@ async function addUser(e) {
     if(obj.first_name!="" && obj.last_name!="" && obj.email!="" && obj.username!="" && obj.password!=""){  
         let res = await postRequest("http://localhost:5000/users/register",obj)
         console.log(res)
-        window.alert("next");
-        // window.location.href="../home/login.html";
+        if(res.status=="ok")
+            window.location.href="../login/login.html";
+        else{
+            alert("User already exist!!");
+        }
     }
 }
 
