@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form name="loginForm" method="POST" action="../home/index.html" onsubmit="return validate()">
+    <form name="loginForm" method="POST">
         <img src="logo.png" alt="" height="300">
         <h1 id="logo"><b>aNoted</b> - Login</h1>
 
@@ -22,8 +22,8 @@
             <input type="password" id="password" placeholder="Password" required/>
         </div><br>
 
-        <input id="login" type="submit" value="Login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button onclick="signUp()">Sign Up</a></button>
+        <button class="login-btn">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button onclick="signUp()">Sign Up</button>
     </form>
 
     <script src="login.js"></script>

@@ -10,19 +10,42 @@ const responses=require("../utils/responses")
 //validations
 const validation=require('../validations/register.validation')
 
+router.route('/login').post(async (req,res)=> {
+  console.log('hello');
+  User.findOne({username:req.body.username})
+  .then(user=>{
+    console.log(user);
+    if(!user)
+      return res.status(404).json({error:"No user found"})
+    else{
+      bcrypt.compare(req.body.password,user.password,(error,result)=>{
+        if(error)
+          return res.status(500).json(error)
+        else if(result)
+          return res.status(200).json(user)
+        else
+          return res.status(403).json({error:"Password is incorrect"})
+      })
+    }
+  })
+ .catch(error=>{
+   res.status(500).json(error)
+ })
+});
+
 router.route('/register').post(async (req, res) => {
     console.log("hello");
     try {
         console.log(req.body);
         console.log('call');
-        let validate = await validation(req.body);
+        // let validate = await validation(req.body);
     
-        if (validate.error) {
-          return responses.badRequestResponse(
-            res,
-            validate.error.details[0].message
-          );
-        }
+        // if (validate.error) {
+        //   return responses.badRequestResponse(
+        //     res,
+        //     validate.error.details[0].message
+        //   );
+        // }
     
         let user =await User.findOne({
             $or: [
@@ -47,6 +70,7 @@ router.route('/register').post(async (req, res) => {
         if (!new_user) {
           return responses.serverErrorResponse(res, "Error while creating user.")
         }
+        console.log("hello")
         return responses.successfullyCreatedResponse(res, new_user)
       } 
       catch (error) {
@@ -71,25 +95,6 @@ router.route('/deleteUser/:id').delete((req,res)=> {
     User.findByIdAndRemove(req.params.id)
    .then(user=>res.json(user))
    .catch(err=>res.status(400).json('Error' + err));
-});
-
-router.route('/login/:username/:pwd').get(async(req,res)=> {
-    const person=await User.findOne({username:req.params.username})
-    res.json(person);
-    console.log(person);
-    if(person){
-        bcrypt.compare(req.params.pwd,person.password,(err,res)=>{
-            if(res){
-                console.log("Login successfull");
-            }
-            else{
-                console.log("Password is incorrect");
-            }
-        });
-    }
-    else{
-        console.log("Username doesnt exist!!")
-    }
 });
 
 module.exports = router;

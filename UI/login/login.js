@@ -1,36 +1,55 @@
-window.onload = async()=>{
-    try {
-        let res=await fetch("http://localhost:5000/", {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-      
-          })
-    let data = await res.json()
-    console.log(data)
-    } catch (error) {
-        console.log(error)
-    }
-}
+// async function validate() {
+//     var username = document.getElementById("username").value;
+//     var password = document.getElementById("password").value;
+//     alert('hey')
+//     let result = await fetch("http://localhost:5000/users/login", {
+//         method: 'POST',
+//         body:JSON.stringify({
+//             username:username,
+//             password:password
+//         }),
+//         headers: {
+//             "Content-Type": 'application/json',
+//             "Accept": 'application/json'
+//         },
+//         });
+//         alert(result);
+   
+// }
 
-
-function validate() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    console.log(username);
-    if (username == "mishel07" && password == "mishel07") 
-    {
-        return true;
-    }
-    else{
-        alert("Incorrect username or password");
-        document.getElementById("username").value="";
-        document.getElementById("password").value="";
-        return false;
-    }
-}
+document.querySelector(".login-btn").addEventListener("click",validate)
 
 function signUp(){
     window.location.href="../register/register.html";
+}
+
+async function validate(e) {
+    e.preventDefault();
+    let obj = {}
+    obj.username = document.getElementById("username").value;
+    obj.password = document.getElementById("password").value;
+    const data=[];
+    if(obj.username!="" && obj.password!=""){  
+        let res = await postRequest("http://localhost:5000/users/login",obj)
+        console.log(res)
+        alert("next");
+        // window.location.href="../home/login.html";
+    }
+}
+
+
+var postRequest = async(url,obj)=>{
+    // console.log(obj)
+    let body = JSON.stringify(obj)
+    
+    let result = await fetch(url, {
+        method: 'POST',
+        body:body,
+        headers: {
+            "Content-Type": 'application/json',
+            "Accept": 'application/json'
+        },
+        });
+        let res = await result.json()
+        return res
 }
