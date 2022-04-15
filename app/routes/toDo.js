@@ -38,10 +38,11 @@ router.route('/searchByTitle/:userId/:title').get((req,res)=>{
     })
 });
 
-router.route('/updateTodo/:id').put((req,res)=>{
-    ToDo.findOneAndUpdate(req.params.id,req.body)
+router.route('/updateTodo').put((req,res)=>{
+    ToDo.findOneAndUpdate({username:req.body.username,title:req.body.title},req.body)
     .then((result)=>{
         res.json(result);
+        console.log(result);
     })
     .catch((err)=>{
         res.json(err);

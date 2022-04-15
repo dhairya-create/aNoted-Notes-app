@@ -14,7 +14,7 @@ async function onloadFun(){
         h4.id = i;
         h4.onclick = function() { 
             sessionStorage.setItem("title",h4.innerHTML);
-            sessionStorage.setItem("desc",JSON.stringify(res[h4.id].description.tasks));
+            sessionStorage.setItem("desc",JSON.stringify(res[h4.id].description));
             console.log(sessionStorage.getItem("title"));
             console.log(sessionStorage.getItem("desc"));
             window.location.href="../updateTodo/todo.html";
