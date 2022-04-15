@@ -15,8 +15,10 @@ async function validate(e) {
     if(obj.username!="" && obj.password!=""){  
         let res = await postRequest("http://localhost:5000/users/login",obj);
         console.log(res)
-        if(!res.error)
+        if(!res.error){
+            sessionStorage.setItem("user",obj.username);
             window.location.href="../Home/index.html";
+        }
         else
             alert("Invalid credentials");
     }

@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 const users = require('./user.model');
 const notesSchema = new mongoose.Schema({
-  user_id: [{
-    type: mongoose.Schema.Types.ObjectId,
+  username: {
+    type: mongoose.Schema.Types.String,
     ref: 'users'
-  }],
+  },
   title: {
     type: String,
     required: true,
+    unique:true
   },
   description: {
-    type: String,
-    required: true,
+    type: String
   },
 }, {
   timestamps: true,

@@ -1,15 +1,23 @@
 const router = require('express').Router();
 let Notes = require('../models/notes.model');
 
-router.route('/add').post((req,res) => { 
-    const newNote = new Notes(req.body);
-    newNote.save()
-        .then(() => res.json("Notes added"))
-        .catch(err => res.status(400).json("error:"+err));
+router.route('/add').post(async(req,res) => { 
+    let result=await Notes.findOne({username:req.body.username,title:req.body.title})
+    console.log(result);
+    if(!result){
+        const newNote = new Notes(req.body);
+        newNote.save()
+            .then(() => res.json("Notes added"))
+            .catch(err => res.status(400).json("error:"+err));
+    }
+    else{
+        res.json({err:"Title already exist"});
+    }
 });
 
-router.route('/all/:userId').get((req,res)=>{
-    Notes.find({user_id:req.params.userId}).sort({createdAt:-1})
+router.route('/all/:username').get((req,res)=>{
+    console.log(req.params.username);
+    Notes.find({username:req.params.username}).sort({createdAt:-1})
     .then((result)=>{
         res.json(result);
     })

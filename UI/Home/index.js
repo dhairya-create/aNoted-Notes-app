@@ -1,24 +1,42 @@
 const notes = [];
-const desc = ["dhairya","parshwa","jenish","mishel","shery","raj","kalp","rohan"];
-function onloadFun(){
+let result;
+async function onloadFun(){
+    console.log(sessionStorage.getItem("user"));
+    let obj = sessionStorage.getItem("user");
+    let res = await getRequest("http://localhost:5000/notes/all",obj);
+    console.log(res)
+    result=res;
     const div = document.getElementById("cards");
     const childDiv = document.createElement("div");
     childDiv.className="childDiv";
-    for(let i=0; i<8; i++){
+    for(let i=0; i<res.length; i++){
         const h4 = document.createElement("h4");
         h4.id = i;
         h4.onclick = function() { 
             sessionStorage.setItem("title",h4.innerHTML);
-            sessionStorage.setItem("desc",desc[h4.id]);
+            sessionStorage.setItem("desc",res[h4.id].description);
             console.log(sessionStorage.getItem("title"));
             console.log(sessionStorage.getItem("desc"));
             window.location.href="../viewNotes/notes.html";
         };
-        h4.innerHTML = "Notes" + i;
+        h4.innerHTML = res[i].title;
         childDiv.appendChild(h4);
         notes[i] = h4.innerHTML;
     }
     div.appendChild(childDiv);
+}
+var getRequest = async(url,obj)=>{
+    url+="/"+obj;
+    console.log(url)
+    let result = await fetch(url, {
+        method: 'GET',
+        headers: {
+            "Content-Type": 'application/json',
+            "Accept": 'application/json'
+        },
+        });
+        let res = await result.json();
+        return res
 }
 function search(){
     var flag = 0;
@@ -34,7 +52,7 @@ function search(){
                 h4.id = i;
                 h4.onclick = function() { 
                     sessionStorage.setItem("title",h4.innerHTML);
-                    sessionStorage.setItem("desc",desc[h4.id]);
+                    sessionStorage.setItem("desc",result[i].description);
                     console.log(sessionStorage.getItem("title"));
                     console.log(sessionStorage.getItem("desc"));
                     window.location.href="../viewNotes/notes.html";
