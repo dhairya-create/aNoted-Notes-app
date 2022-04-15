@@ -47,6 +47,7 @@ function doBold(){
             data.style.textDecoration="";
     }
 
+    document.querySelector(".notes-btn").addEventListener("click",saveNotes)
 
     async function saveNotes(e)
     {
@@ -57,27 +58,22 @@ function doBold(){
         obj.description = document.getElementById("content").innerHTML;
         const data=[];
         if(obj.title!=""){  
-            let res = await postRequest("http://localhost:5000/notes/add",obj);
+            let res = await putRequest("http://localhost:5000/notes/updateNotes",obj);
             console.log(res);
-            if(!res.err){
-                alert("Notes saved!!");
-                window.location.href="../home/index.html";
-            }
-            else{
-                alert("Title already exist");
-            }
+            alert("Notes saved!!");
+            window.location.href="../home/index.html";
+           
         }   
         else{
             alert("Title is empty");
         }
     }
 
-    var postRequest = async(url,obj)=>{
-        // console.log(obj)
+    var putRequest = async(url,obj)=>{
         let body = JSON.stringify(obj)
         
         let result = await fetch(url, {
-            method: 'POST',
+            method: 'PUT',
             body:body,
             headers: {
                 "Content-Type": 'application/json',

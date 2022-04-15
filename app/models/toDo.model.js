@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 const toDoSchema = new mongoose.Schema({
 
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
+    username: {
+        type: mongoose.Schema.Types.String,
         ref: 'users'
     },
 
     title: {
         type: String,
         required: true,
+        unique:true
     },
 
     description: {
