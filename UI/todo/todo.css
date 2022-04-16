@@ -9,13 +9,15 @@
     margin-top: 60px;
     flex-wrap: wrap;
     clear: both;
-    background-color:antiquewhite;
+    background-color:#C74B50;
+    
    
 }
 
 body{
-    background-color: lightblue;
+  
     text-align: center;
+    
     
 }
 #todo-title{
@@ -24,6 +26,7 @@ body{
     text-align: center;
     width: 495px;
     height: 30px;
+   
 }
 
 input[type=checkbox]:checked + input {
@@ -53,8 +56,15 @@ input[type=text]
 }
 
 button{
-    background-color:rgb(9, 63, 63);
+    background-color:#5e4b84;
     font-size: 150%;
     font-weight: bolder;
     color: aliceblue;
+}
+
+html{
+    background-image: -webkit-linear-gradient(65deg, #5F9EA0 50%, #002D62 50%);
+    min-height: 1000px;
+    font-family: 'helvetica neue';
+    text-align: center;
 }

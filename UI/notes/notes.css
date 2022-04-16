@@ -1,5 +1,8 @@
-body{
-    background-color: lightblue;
+html{
+    background-image: -webkit-linear-gradient(65deg, #5F9EA0 50%, #002D62 50%);
+    min-height: 1000px;
+    font-family: 'helvetica neue';
+    text-align: center;
 }
 
 .container{
@@ -10,7 +13,7 @@ body{
     width: 505px;
     padding: 50px;
     margin: auto;
-    background-color: antiquewhite;
+    background-color:#C74B50;
     margin-top: 60px;
     flex-wrap: wrap;
     clear: both;
@@ -34,16 +37,21 @@ body{
     color:aliceblue;
     font-size: 150%;
     font-weight: bolder;
-    background-color: rgb(9, 63, 63);
+    background-color:#5e4b84;
     margin:5px;
     padding: 5px;
+   
  }
+
+ .btn:hover span {
+    padding-right: 25px;
+  }
 
  #description{
     min-height: 80%;
     max-height: 200%;
     font-size: 18px;
-    background-color:rgb(235, 201, 137);
+    background-color:rgb(238, 214, 171);
     font-weight: 500;
  }
 

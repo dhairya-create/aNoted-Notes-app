@@ -1,13 +1,5 @@
-html,
-body {
-  height: 100%;
-}
 
-body {
-  padding-top: 5rem;
-  background-color: lightblue;
-  text-align: center;
-}
+
 
 button{
     background-color:lightblue;
@@ -20,7 +12,8 @@ input{
 }
 
 #myform{
-   background-color: rgb(235, 201, 137);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   background-color: #FFBF00;
    color:rgb(9, 63, 63);
    height:max-content;
    width: max-content;
@@ -28,6 +21,7 @@ input{
    margin-right: 15%;
    margin-top: 5%;
    display: flex;
+  
  }
 
  #logo{
@@ -38,3 +32,12 @@ input{
  a{
    color:rgb(9, 63, 63);
  }
+
+ html {
+ 
+  background-image: -webkit-linear-gradient(65deg, #5F9EA0 50%, #002D62 50%);
+  min-height: 1000px;
+  font-family: 'helvetica neue';
+  padding-top: 5rem;
+  text-align: center;
+}
