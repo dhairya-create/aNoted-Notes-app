@@ -1,5 +1,7 @@
-var diary_date=sessionStorage.getItem('diary_date');
-console.log(diary_date);
+var desc = sessionStorage.getItem("desc");
+var day = sessionStorage.getItem("day")
+document.getElementById("content").innerHTML = desc;
+
 document.querySelector(".diary-btn").addEventListener("click", saveNotes)
 
 async function saveNotes(e) {
@@ -7,9 +9,9 @@ async function saveNotes(e) {
     let obj = {}
     obj.username = sessionStorage.getItem("user");
     obj.description = document.getElementById("content").innerHTML;
-    obj.diary_date=diary_date;
+    obj.diary_date = day;
     if (obj.description != "") {
-        let res = await postRequest("http://localhost:5000/diary/add", obj);
+        let res = await putRequest("http://localhost:5000/diary/updateDiary", obj);
         console.log(res);
         alert("Diary saved!!");
         window.location.href = "../diary/diary.html";
@@ -19,12 +21,11 @@ async function saveNotes(e) {
     }
 }
 
-var postRequest = async (url, obj) => {
-    // console.log(obj)
+var putRequest = async (url, obj) => {
     let body = JSON.stringify(obj)
 
     let result = await fetch(url, {
-        method: 'POST',
+        method: 'PUT',
         body: body,
         headers: {
             "Content-Type": 'application/json',

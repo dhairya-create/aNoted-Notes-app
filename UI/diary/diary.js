@@ -1,9 +1,73 @@
 const date = new Date();
-function getDiary(data){
-  console.log(data.id);
-  sessionStorage.setItem("date",data.id);
-  window.location.href="../diaryNotes/notes.html";
+var month;
+var year;
+
+async function diaryVisited(){
+  let obj = sessionStorage.getItem("user");
+  let res = await checkRequest("http://localhost:5000/diary/all",obj);
+  console.log(res)
+  var monthDates = [];
+  for(let j=0;j<res.length;j++){
+    var dates = res[j].diary_date.split(" ");
+    if(dates[1] == month && dates[2] == year){
+        monthDates.push(dates[0]);
+    }
+  }
+  for(let j=0;j<monthDates.length;j++){
+    document.getElementById(monthDates[j]).style.color="red";
+  }
 }
+
+var checkRequest = async(url,obj)=>{
+  url+="/"+obj;
+  console.log(url)
+  let result = await fetch(url, {
+      method: 'GET',
+      headers: {
+          "Content-Type": 'application/json',
+          "Accept": 'application/json'
+      },
+      });
+      let res = await result.json();
+      return res
+}
+
+diaryVisited();
+
+async function getDiary(data){
+  var day=data.id+" "+month+" "+year;
+  console.log(day);
+  sessionStorage.setItem("diary_date",day);
+  let obj = {}
+  obj.username = sessionStorage.getItem("user");
+  obj.day=day;
+  let res = await getRequest("http://localhost:5000/diary/searchByDate", obj);
+  console.log(res);
+  if(!res)
+    window.location.href="../diaryNotes/notes.html";
+  else{
+    sessionStorage.setItem("desc",res.description);
+    sessionStorage.setItem("day",res.diary_date);
+    window.location.href="../viewDiary/notes.html";
+  }
+}
+
+var getRequest = async (url, obj) => {
+  // console.log(obj)
+  let body = JSON.stringify(obj)
+
+  let result = await fetch(url, {
+      method: 'POST',
+      body: body,
+      headers: {
+          "Content-Type": 'application/json',
+          "Accept": 'application/json'
+      },
+  });
+  let res = await result.json();
+  return res
+}
+
 const renderCalendar = () => {
   date.setDate(1);
 
@@ -47,8 +111,8 @@ const renderCalendar = () => {
   ];
 
   document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  month=months[date.getMonth()];
+  year=new Date().getFullYear();
 
   let days = "";
   for (let x = firstDayIndex; x > 0; x--) {
@@ -65,28 +129,20 @@ const renderCalendar = () => {
 
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="next-date">${j}</div>`;
-    monthDays.innerHTML = days;
   }
+  monthDays.innerHTML = days;
 };
 
 document.querySelector(".prev").addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
+  diaryVisited();
 });
 
 document.querySelector(".next").addEventListener("click", () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar();
+  diaryVisited();
 });
 
 renderCalendar();
-
-var data = sessionStorage.getItem("date");
-var check = sessionStorage.getItem("checkDate");
-console.log(data);
-console.log(check);
-if(data==check)
-{
-  console.log('yes');
-  document.getElementById(data).style.color="red";
-}
