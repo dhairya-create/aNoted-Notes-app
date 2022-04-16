@@ -46,8 +46,28 @@ router.route('/updateNotes').put((req,res)=>{
     })
 })
 
-router.route('/sortByTitle/:userId').get((req,res)=>{
-    Notes.find({user_id:req.params.userId}).sort({title:1})
+router.route('/sortByTitle/:username').get((req,res)=>{
+    Notes.find({username:req.params.username}).sort({title:1})
+    .then((result)=>{
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.json(err);
+    })
+});
+
+router.route('/sortByCreatedDate/:username').get((req,res)=>{
+    Notes.find({username:req.params.username}).sort({createdAt:1})
+    .then((result)=>{
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.json(err);
+    })
+});
+
+router.route('/sortByModifiedDate/:username').get((req,res)=>{
+    Notes.find({username:req.params.username}).sort({updatedAt:-1})
     .then((result)=>{
         res.json(result);
     })
