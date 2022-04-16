@@ -28,8 +28,28 @@ router.route('/all/:username').get((req,res)=>{
     })
 });
 
-router.route('/searchByTitle/:userId/:title').get((req,res)=>{
-    ToDo.find({user_id:req.params.userId,title:req.params.title})
+router.route('/sortByTitle/:username').get((req,res)=>{
+    ToDo.find({username:req.params.username}).sort({title:1})
+    .then((result)=>{
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.json(err);
+    })
+});
+
+router.route('/sortByCreatedDate/:username').get((req,res)=>{
+    ToDo.find({username:req.params.username}).sort({createdAt:1})
+    .then((result)=>{
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.json(err);
+    })
+});
+
+router.route('/sortByModifiedDate/:username').get((req,res)=>{
+    ToDo.find({username:req.params.username}).sort({updatedAt:-1})
     .then((result)=>{
         res.json(result);
     })
