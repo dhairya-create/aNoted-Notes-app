@@ -19,7 +19,7 @@ router.route('/add').post(async(req,res) => {
 });
 
 router.route('/all/:username').get((req,res)=>{
-    ToDo.find({user_id:req.params.username})
+    ToDo.find({username:req.params.username})
     .then((result)=>{
         res.json(result);
     })
@@ -39,7 +39,9 @@ router.route('/searchByTitle/:userId/:title').get((req,res)=>{
 });
 
 router.route('/updateTodo').put((req,res)=>{
-    ToDo.findOneAndUpdate({username:req.body.username,title:req.body.title},req.body)
+    const tasks = req.body.description;
+    const description={tasks};
+    ToDo.findOneAndUpdate({username:req.body.username,title:req.body.title},{username:req.body.username,title:req.body.title,description:description})
     .then((result)=>{
         res.json(result);
         console.log(result);
@@ -59,8 +61,8 @@ router.route('/sortByTitle/:userId').get((req,res)=>{
     })
 });
 
-router.route('/deleteToDo/:id').delete((req,res)=>{
-    ToDo.findOneAndRemove(req.params.id)
+router.route('/deleteTodo').delete((req,res)=>{
+    ToDo.deleteOne({username:req.body.username,title:req.body.title})
     .then((result)=>{
         res.json(result);
     })

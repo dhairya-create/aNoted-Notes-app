@@ -39,8 +39,8 @@ router.route('/updateDiary').put((req,res)=>{
     })
 })
 
-router.route('/deleteDiary/:id').delete((req,res)=>{
-    diary.findOneAndRemove(req.params.id)
+router.route('/deleteDiary').delete((req,res)=>{
+    diary.deleteOne({username:req.body.username,diary_date:req.body.diary_date})
     .then((result)=>{
         res.json(result);
     })

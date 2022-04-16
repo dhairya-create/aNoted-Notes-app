@@ -56,8 +56,8 @@ router.route('/sortByTitle/:userId').get((req,res)=>{
     })
 });
 
-router.route('/deleteNotes/:id').delete((req,res)=>{
-    Notes.findByIdAndRemove(req.params.id)
+router.route('/deleteNotes').delete((req,res)=>{
+    Notes.deleteOne({username:req.body.username,title:req.body.title})
     .then((result)=>{
         res.json(result);
     })

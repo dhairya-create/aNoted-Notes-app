@@ -15,7 +15,7 @@ async function createTodo(e)
             console.log(res);
             if(!res.err){
                 alert("ToDo saved!!");
-                window.location.href="../home/index.html";
+                window.location.href="../todoHome/index.html";
             }
             else{
                 alert("Title already exist");

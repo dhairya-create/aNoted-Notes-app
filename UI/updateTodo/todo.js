@@ -91,39 +91,32 @@ function addTask() {
     div.appendChild(text);
     form.appendChild(div);
 }
-// document.querySelector(".notes-btn").addEventListener("click",saveNotes)
 
-//     async function saveNotes(e)
-//     {
-//         e.preventDefault();
-//         let obj = {}
-//         obj.username=sessionStorage.getItem("user");
-//         obj.title = document.getElementById("notes-title").value;
-//         obj.description = document.getElementById("content").innerHTML;
-//         const data=[];
-//         if(obj.title!=""){  
-//             let res = await putRequest("http://localhost:5000/notes/updateNotes",obj);
-//             console.log(res);
-//             alert("Notes saved!!");
-//             window.location.href="../home/index.html";
-           
-//         }   
-//         else{
-//             alert("Title is empty");
-//         }
-//     }
+document.querySelector(".del-btn").addEventListener("click",delNotes)
 
-//     var putRequest = async(url,obj)=>{
-//         let body = JSON.stringify(obj)
-        
-//         let result = await fetch(url, {
-//             method: 'PUT',
-//             body:body,
-//             headers: {
-//                 "Content-Type": 'application/json',
-//                 "Accept": 'application/json'
-//             },
-//             });
-//             let res = await result.json();
-//             return res
-//     }
+async function delNotes(e)
+{
+    e.preventDefault();
+    let obj = {}
+    obj.username=sessionStorage.getItem("user");
+    obj.title = document.getElementById("todo-title").value; 
+    let res = await delRequest("http://localhost:5000/toDo/deleteTodo",obj);
+    console.log(res);
+    alert("ToDo deleted!!");
+    window.location.href="../todoHome/index.html";
+}
+
+var delRequest = async(url,obj)=>{
+    let body = JSON.stringify(obj)
+    
+    let result = await fetch(url, {
+        method: 'DELETE',
+        body:body,
+        headers: {
+            "Content-Type": 'application/json',
+            "Accept": 'application/json'
+        },
+        });
+        let res = await result.json();
+        return res
+}

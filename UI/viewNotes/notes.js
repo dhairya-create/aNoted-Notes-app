@@ -83,3 +83,34 @@ function doBold(){
             let res = await result.json();
             return res
     }
+
+
+
+    document.querySelector(".del-btn").addEventListener("click",delNotes)
+
+    async function delNotes(e)
+    {
+        e.preventDefault();
+        let obj = {}
+        obj.username=sessionStorage.getItem("user");
+        obj.title = document.getElementById("notes-title").value; 
+        let res = await delRequest("http://localhost:5000/notes/deleteNotes",obj);
+        console.log(res);
+        alert("Note deleted!!");
+        window.location.href="../home/index.html";
+    }
+
+    var delRequest = async(url,obj)=>{
+        let body = JSON.stringify(obj)
+        
+        let result = await fetch(url, {
+            method: 'DELETE',
+            body:body,
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            },
+            });
+            let res = await result.json();
+            return res
+    }
