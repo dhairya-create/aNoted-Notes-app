@@ -8,6 +8,12 @@ function signUp(){
 
 async function validate(e) {
     e.preventDefault();
+    let userName = document.forms["loginForm"]["username"].value;
+    let password = document.forms["loginForm"]["password"].value;
+
+    if(userName=="" || password=="")
+    alert("Username and Password are required to login!");
+
     let obj = {}
     obj.username = document.getElementById("username").value;
     obj.password = document.getElementById("password").value;

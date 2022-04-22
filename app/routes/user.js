@@ -25,6 +25,7 @@ const tranpoter = nodemailer.createTransport(
 );
 
 router.route('/forgotPass').post(async (req, res) => {
+  
   try {
     let get_user = await User.findOne({email: req.body.email});
     if(get_user){
@@ -35,6 +36,7 @@ router.route('/forgotPass').post(async (req, res) => {
           }
           let otp = rn(options)
       let temp = await EmailSend.sendEmail(req.body.email,otp);
+      console.log("Email sent successfully");
       res.status(200).json({ "otp": otp, "user": get_user })
     }
     else 
