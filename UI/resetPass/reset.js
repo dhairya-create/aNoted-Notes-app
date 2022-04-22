@@ -1,11 +1,22 @@
 
-
 document.querySelector(".reset-btn").addEventListener("click",validate)
 
 async function validate(e) {
     e.preventDefault();
+
+   
+
     let newPass = document.getElementById("newPass").value;
     let conPass = document.getElementById("conPass").value;
+    let username=document.getElementById("username").value;
+
+    if(newPass=="" || conPass=="" || username=="")
+    alert("Enter all the credentials!")
+    
+
+
+   
+
     if(newPass == conPass){
         let obj = {}
         obj.username=document.getElementById("username").value;
