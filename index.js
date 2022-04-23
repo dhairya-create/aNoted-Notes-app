@@ -81,7 +81,7 @@ app.get("/forgotPass/forgot.html",(req,res)=>{
 app.get("/forgotPass/forgot.css",(req,res)=>{
   res.sendFile(__dirname+"/UI/forgotPass/forgot.css");
 })
-app.get("/forgotPass/forgot.html",(req,res)=>{
+app.get("/forgotPass/forgot.js",(req,res)=>{
   res.sendFile(__dirname+"/UI/forgotPass/forgot.js");
 })
 app.get("/forgotPass/logo.png",(req,res)=>{
